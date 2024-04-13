@@ -9,6 +9,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   axios.defaults.withCredentials = true;
 
   await axios.get("/sanctum/csrf-cookie", {
-    baseURL: "http://localhost",
+    baseURL: config.public.appURL,
   });
 });
