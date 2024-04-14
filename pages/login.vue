@@ -1,26 +1,15 @@
 <script setup lang="ts">
-import { password } from "@formkit/icons";
-import axios from "axios";
-
 definePageMeta({
   layout: "centered",
   middleware: ["guest"],
 });
-
-interface LoginPayload {
-  email: String;
-  password: String;
-}
 
 const form = ref({
   email: "",
   password: "",
 });
 
-async function login(payload: LoginPayload) {
-  await axios.post("/login", payload);
-  useRouter().push("/me");
-}
+const { login } = useAuth();
 </script>
 <template>
   <div class="login">

@@ -6,30 +6,22 @@ definePageMeta({
   middleware: ["guest"],
 });
 
-interface RegisterPayload {
-  name: String;
-  email: String;
-  password: String;
-  password_confirmation: String;
-}
-
 const form = ref({
   name: "",
   email: "",
   password: "",
   password_confirmation: "",
 });
-
-async function register(payload: RegisterPayload) {
-  // const res = await axios.post("http://localhost/api/register", payload);
-  const res = await axios.post("/register", payload);
-  console.log(res);
-  await axios.post("/login", {
-    email: payload.email,
-    password: payload.password,
-  });
-  useRouter().push("/me");
-}
+// async function register(payload: RegisterPayload) {
+//   // const res = await axios.post("http://localhost/api/register", payload);
+//   await axios.post("/register", payload);
+//   await axios.post("/login", {
+//     email: payload.email,
+//     password: payload.password,
+//   });
+//   useRouter().push("/me");
+// }
+const { register } = useAuth();
 </script>
 <template>
   <div class="register">
