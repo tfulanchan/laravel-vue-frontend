@@ -8,7 +8,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   axios.defaults.headers.common["Accept"] = "application/json";
   axios.defaults.withCredentials = true;
 
-  await axios.get("/sanctum/csrf-cookie", {
-    baseURL: config.public.appURL,
-  });
+//   await axios.get("/sanctum/csrf-cookie", {
+//     baseURL: config.public.appURL,
+//   });
 });
